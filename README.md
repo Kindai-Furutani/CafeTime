@@ -8,4 +8,10 @@ Git/GitHubの練習も兼ねて使ってみる。多分変な使い方とかめ�
   /java/com/example/cafetime/cafetime<br>
     各javaファイル<br>
 <br>
-的な配置になってる（と思う）
+的な配置になってる（と思う）<br>
+<br>
+<br>
+##Version
+AndroidStudio 2.2.2<br>
+AndroidAPI 25<br>
+AndroidVersion 5.1
