@@ -2,6 +2,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android" >
 	<PreferenceCategory android:title="サイト設定">
 		<EditTextPreference
+			android:id="@+id/urlData1"
 			android:key="Data1"
 			android:title="Site1"
 			android:dialogTitle="Dialog Title"
@@ -9,6 +10,7 @@
 			android:defaultValue="data1"
 			/>
 		<EditTextPreference
+			android:id="@+id/urlData2"
 			android:defaultValue="data2"
 			android:selectAllOnFocus="true"
 			android:singleLine="true"
