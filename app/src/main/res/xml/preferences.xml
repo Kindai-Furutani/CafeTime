@@ -1,0 +1,22 @@
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android" >
+	<PreferenceCategory android:title="サイト設定">
+		<EditTextPreference
+			android:key="Data1"
+			android:title="Site1"
+			android:dialogTitle="Dialog Title"
+			android:dialogMessage="Dialog Message"
+			android:defaultValue="data1"
+			/>
+		<EditTextPreference
+			android:defaultValue="data2"
+			android:selectAllOnFocus="true"
+			android:singleLine="true"
+			android:title="Site2"
+			android:key="Data2"/>
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="時間設定">
+
+	</PreferenceCategory>
+</PreferenceScreen>

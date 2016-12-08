@@ -178,7 +178,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="4b4d7ab486e601f50bc4a4b61cd2f7d1469d71e5">
+        sha1="617af5f7fbb636bf0b412a23283ec6c64eae9be3">
         <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_48e78c2ce34fdd4209f21c79400529ff77e432e1/classes.dex" />
     </item>
 

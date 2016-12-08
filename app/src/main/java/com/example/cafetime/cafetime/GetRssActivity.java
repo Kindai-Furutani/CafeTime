@@ -8,7 +8,8 @@ import android.os.Bundle;
 //ここまで追加
 
 public class GetRssActivity extends AppCompatActivity {
-	public static String RssURL1 = "http://itpro.nikkeibp.co.jp/rss/ITpro.rdf";
+
+	public static String RssURL1 = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

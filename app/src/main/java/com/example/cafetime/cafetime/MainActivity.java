@@ -24,18 +24,6 @@ public class MainActivity extends AppCompatActivity {
 //タイトルバーの文字を変更
 		setTitle("ホーム");
 //タイトルバーの変更ここまで
-
-/*フローティングボタン
-		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
-フローティングボタンここまで*/
-
 	}
 
 //右上の設定ボタン
@@ -57,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_settings) {
-			Intent intent = new Intent(this, SettingsActivity.class);
+			Intent intent = new Intent(this, Preferences.class);
 			startActivity(intent);
 		}
 
