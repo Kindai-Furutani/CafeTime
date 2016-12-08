@@ -3,78 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_aa055c4100502aca215956cd0300741a146640d4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="794f99eee72f17ecb95e1f4ad5c378c428c41467">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9dd2c66be5c29e988e6a3af55e9e24ce91107d84/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_f8a9f04901195193c36924ff81db7d946e51b9f3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_0bc13983b5316a9bfcf6e6fbeb67b42d29ff7670/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_931db0510182d3a9be9508a267e1fb0b82c18503/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_bea7b01de55e9dbbd8b85eb54e901368e5fd55c4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_f402599bcd2a3835d1561c05bee8cb100d3a2ebb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="cc30f463619243a38e00d03650ab3cbd6b456ec9">
-        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_48e78c2ce34fdd4209f21c79400529ff77e432e1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -120,6 +48,42 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_aa055c4100502aca215956cd0300741a146640d4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="50161e5dbada230f29f98de3beddb08a6985408c">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9dd2c66be5c29e988e6a3af55e9e24ce91107d84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_f8a9f04901195193c36924ff81db7d946e51b9f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_0bc13983b5316a9bfcf6e6fbeb67b42d29ff7670/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -147,6 +111,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_931db0510182d3a9be9508a267e1fb0b82c18503/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_bea7b01de55e9dbbd8b85eb54e901368e5fd55c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -165,6 +147,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_f402599bcd2a3835d1561c05bee8cb100d3a2ebb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -180,6 +171,15 @@
         revision="25.0.1"
         sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
         <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_789af4d4f34994aa1e2a82dfb98b14b135babbb9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4b4d7ab486e601f50bc4a4b61cd2f7d1469d71e5">
+        <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_48e78c2ce34fdd4209f21c79400529ff77e432e1/classes.dex" />
     </item>
 
 </items>
