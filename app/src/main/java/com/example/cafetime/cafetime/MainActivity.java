@@ -1,5 +1,3 @@
-//アプリ起動時に表示する画面
-
 package com.example.cafetime.cafetime;
 
 import android.os.Bundle;
@@ -7,12 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-//追加物(大体自動)
 import android.content.Intent;
-//追加物ここまで
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+	private ArrayList mItems = new ArrayList();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,37 @@ public class MainActivity extends AppCompatActivity {
 
 //タイトルバーの文字を変更
 		setTitle("ホーム");
-//タイトルバーの変更ここまで
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!現在デバッグ中の箇所!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//ここからRSS取得の設定
+//		EditText editText1 = (EditText)findViewById(R.id.urlData1);
+//		String URL1 = editText1.getText().toString();
+
+//		EditText editText2 = (EditText)findViewById(R.id.urlData2);
+//		String URL2 = editText2.getText().toString();
+
+		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
+
+		ListView _listview = (ListView)findViewById(R.id.listView1);
+
+		RssParserTask task = new RssParserTask(this, mAdapter,_listview);
+		task.execute("http://andante.in/i/feed/");
+//		task.execute(URL2);
+		_listview.setOnItemClickListener(this);
+
+
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+		Item item = (Item)mItems.get(arg2);
+		Intent intent = new Intent(this, ItemDetailActivity.class);
+		intent.putExtra("TITLE", item.getTitle());
+		intent.putExtra("DESCRIPTION", item.getDescription());
+		startActivity(intent);
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ここまでデバッグ中!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 	}
 
 //右上の設定ボタン

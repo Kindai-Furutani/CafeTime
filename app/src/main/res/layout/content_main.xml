@@ -14,8 +14,9 @@
 	tools:context="com.example.cafetime.cafetime.MainActivity"
 	tools:showIn="@layout/activity_main">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="ここはメイン画面\n文字列はres/layout/content_main.xmlの中で編集\n\nエスケープシーケンスはいつもの"/>
+
+	<ListView android:layout_height="fill_parent"
+			  android:id="@+id/listView1"
+			  android:layout_width="fill_parent"/>
+
 </RelativeLayout>

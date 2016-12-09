@@ -5,9 +5,7 @@
 			android:id="@+id/urlData1"
 			android:key="Data1"
 			android:title="Site1"
-			android:dialogTitle="Dialog Title"
-			android:dialogMessage="Dialog Message"
-			android:defaultValue="data1"
+			android:defaultValue="http://andante.in/i/feed/"
 			/>
 		<EditTextPreference
 			android:id="@+id/urlData2"

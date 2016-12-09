@@ -20,10 +20,11 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name=".GetRssActivity">
-		</activity>
 		<activity android:name=".Preferences">
 		</activity>
 	</application>
+
+<!-- インターネットを使用するための権限を追加 -->
+	<uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
