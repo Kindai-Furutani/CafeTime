@@ -36,13 +36,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //		EditText editText2 = (EditText)findViewById(R.id.urlData2);
 //		String URL2 = editText2.getText().toString();
 
+
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
 
 		ListView _listview = (ListView)findViewById(R.id.listView1);
 
 		RssParserTask task = new RssParserTask(this, mAdapter,_listview);
 		task.execute("http://andante.in/i/feed/");
-//		task.execute(URL2);
+//		task.execute(URL1);
 		_listview.setOnItemClickListener(this);
 
 
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ここまでデバッグ中!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	}
+
 
 //右上の設定ボタン
 	@Override
