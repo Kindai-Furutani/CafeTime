@@ -31,16 +31,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!現在デバッグ中の箇所!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //ここからRSS取得の設定
-		EditText editText1 = (EditText)findViewById(R.id.url1);
-		String urlText1 = editText1.getText().toString();  // <<==getText()がぬるぽのせいで動かない模様
+		String urlText1;
+
+		if ( (EditText)findViewById(R.id.url1) != null ) { // <<== ぬるぽ回避用のif文
+			EditText editText1 = (EditText) findViewById(R.id.url1);
+			urlText1 = editText1.getText().toString();  // <<== getText()がぬるぽのせいで動かない模様
+		}
+		else{ // <<== ぬるぽ回避用
+			urlText1 = "http://andante.in/i/feed/";
+		}
 
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
 
 		ListView _listview = (ListView)findViewById(R.id.listView1);
 
 		RssParserTask task = new RssParserTask(this, mAdapter,_listview);
-		task.execute("http://andante.in/i/feed/");
-//		task.execute(urlText1);
+//		task.execute("http://andante.in/i/feed/");
+		task.execute(urlText1);
 		_listview.setOnItemClickListener(this);
 
 
