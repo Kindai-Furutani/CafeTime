@@ -3,6 +3,7 @@ package com.example.cafetime.cafetime;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
@@ -30,12 +31,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!現在デバッグ中の箇所!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //ここからRSS取得の設定
-//		EditText editText1 = (EditText)findViewById(R.id.urlData1);
-//		String URL1 = editText1.getText().toString();
-
-//		EditText editText2 = (EditText)findViewById(R.id.urlData2);
-//		String URL2 = editText2.getText().toString();
-
+		EditText editText1 = (EditText)findViewById(R.id.url1);
+		String urlText1 = editText1.getText().toString();  // <<==getText()がぬるぽのせいで動かない模様
 
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
 
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 		RssParserTask task = new RssParserTask(this, mAdapter,_listview);
 		task.execute("http://andante.in/i/feed/");
-//		task.execute(URL1);
+//		task.execute(urlText1);
 		_listview.setOnItemClickListener(this);
 
 
@@ -65,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //右上の設定ボタン
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
@@ -74,12 +70,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //右上から設定画面への遷移設定
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 
-		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_settings) {
 			Intent intent = new Intent(this, Preferences.class);
 			startActivity(intent);

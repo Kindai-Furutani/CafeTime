@@ -2,13 +2,13 @@
 	xmlns:android="http://schemas.android.com/apk/res/android" >
 	<PreferenceCategory android:title="サイト設定">
 		<EditTextPreference
-			android:id="@+id/urlData1"
-			android:key="Data1"
-			android:title="Site1"
+			android:id="@+id/url1"
+			android:key="url1"
+			android:title="url1"
 			android:defaultValue="http://andante.in/i/feed/"/>
 
 		<EditTextPreference
-			android:id="@+id/urlData2"
+			android:id="@+id/url2"
 			android:defaultValue="data2"
 			android:selectAllOnFocus="true"
 			android:singleLine="true"

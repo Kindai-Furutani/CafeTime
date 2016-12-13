@@ -10,10 +10,7 @@ import android.widget.EditText;
 
 public class GetRssActivity extends AppCompatActivity {
 
-	EditText editText = (EditText)findViewById(R.id.urlData1);
-	String URL1 = editText.getText().toString();
-
-		@Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_get_rss);
