@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
 	private ArrayList mItems = new ArrayList();
+	public EditText editText1 = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +32,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!現在デバッグ中の箇所!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //ここからRSS取得の設定
-		String urlText1;
 
-		if ( (EditText)findViewById(R.id.url1) != null ) { // <<== ぬるぽ回避用のif文
-			EditText editText1 = (EditText) findViewById(R.id.url1);
-			urlText1 = editText1.getText().toString();  // <<== getText()がぬるぽのせいで動かない模様
-		}
-		else{ // <<== ぬるぽ回避用
+//		editText1 = (EditText) findViewById(R.id.url1);
+//		String urlText1 = editText1.getText().toString();  // <<== getText()がぬるぽのせいで動かない模様
+
+		String urlText1 = getText(R.string.url1).toString(); // <<== こいつでぬるぽは解決！
+
+/*		if ( (EditText)findViewById(R.id.url1) == null ) { // <<== ぬるぽ回避用のif文
 			urlText1 = "http://andante.in/i/feed/";
 		}
+*/
 
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
 

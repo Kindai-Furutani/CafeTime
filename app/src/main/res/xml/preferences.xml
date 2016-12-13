@@ -3,9 +3,9 @@
 	<PreferenceCategory android:title="サイト設定">
 		<EditTextPreference
 			android:id="@+id/url1"
-			android:key="url1"
+			android:key="@string/url1"
 			android:title="url1"
-			android:defaultValue="http://andante.in/i/feed/"/>
+			android:defaultValue="@string/defaultSite"/>
 
 		<EditTextPreference
 			android:id="@+id/url2"
