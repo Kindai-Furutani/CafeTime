@@ -24,6 +24,7 @@
 		</activity>
 		<activity android:name=".ItemDetailActivity">
 		</activity>
+		<activity android:name=".SiteSettingActivity"/>
 
 	</application>
 

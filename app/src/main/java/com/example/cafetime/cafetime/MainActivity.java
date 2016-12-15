@@ -1,6 +1,8 @@
 package com.example.cafetime.cafetime;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -38,11 +41,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 		String urlText1 = getText(R.string.url1).toString(); // <<== こいつでぬるぽは解決！
 
-/*		if ( (EditText)findViewById(R.id.url1) == null ) { // <<== ぬるぽ回避用のif文
-			urlText1 = "http://andante.in/i/feed/";
-		}
-*/
-
+		EditText editText = (EditText)findViewById(R.id.EditText);
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
 
 		ListView _listview = (ListView)findViewById(R.id.listView1);

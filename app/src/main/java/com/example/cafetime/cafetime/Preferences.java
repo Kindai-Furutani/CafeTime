@@ -5,22 +5,73 @@ package com.example.cafetime.cafetime;
  */
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.TimePicker;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
-public class Preferences extends PreferenceActivity{
+
+public class Preferences extends AppCompatActivity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(R.layout.activity_preferences);
+
+//ListViewを追加
+		final ListView listView = new ListView(this);
+
+		setContentView(listView);
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+//ListViewの中身を追加
+		adapter.add("Site1");
+		adapter.add("Site2");
+
+		listView.setAdapter(adapter);
+//ListViewの設定ここまで
+
+
+//ListViewが押された時の動作
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+				ListView listView1 = (ListView)adapterView;
+
+//何番目のListViewが押されたかによって開くアクティビティが変わる
+				Intent intent[] = new Intent[2];
+
+				for(int i=0; i<intent.length; i++)
+					intent[i] = new Intent(getApplicationContext(), SiteSettingActivity.class);
+
+				switch (position){
+					case 0:
+						SiteSettingActivity.SaveNum = String.valueOf(position);
+						startActivity(intent[0]);
+						break;
+
+					case 1:
+						SiteSettingActivity.SaveNum = String.valueOf(position);
+						startActivity(intent[1]);
+						break;
+				}
+			}
+		});
+//ListViewが押された時の動作ここまで
+
+
+
+
+
+
+/*
 		// 設定画面の作成
 		addPreferencesFromResource(R.xml.preferences);
+*/
 
 /*
 		TimePickerDialog timePickerDialog;
