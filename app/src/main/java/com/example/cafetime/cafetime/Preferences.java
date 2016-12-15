@@ -49,12 +49,12 @@ public class Preferences extends AppCompatActivity{
 					intent[i] = new Intent(getApplicationContext(), SiteSettingActivity.class);
 
 				switch (position){
-					case 0:
+					case 0: //Site1
 						SiteSettingActivity.SaveNum = String.valueOf(position);
 						startActivity(intent[0]);
 						break;
 
-					case 1:
+					case 1: //Site2
 						SiteSettingActivity.SaveNum = String.valueOf(position);
 						startActivity(intent[1]);
 						break;
