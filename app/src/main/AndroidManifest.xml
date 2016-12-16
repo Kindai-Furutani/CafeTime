@@ -20,11 +20,10 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name=".Preferences">
-		</activity>
-		<activity android:name=".ItemDetailActivity">
-		</activity>
+		<activity android:name=".Preferences"/>
+		<activity android:name=".ItemDetailActivity"/>
 		<activity android:name=".SiteSettingActivity"/>
+		<activity android:name=".TimerSettingActivity"/>
 
 	</application>
 

@@ -16,6 +16,8 @@ import android.widget.ListView;
 
 
 public class Preferences extends AppCompatActivity{
+	public static String SaveNum;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +33,8 @@ public class Preferences extends AppCompatActivity{
 //ListViewの中身を追加
 		adapter.add("Site1");
 		adapter.add("Site2");
+		adapter.add("Site3");
+		adapter.add("Timer");
 
 		listView.setAdapter(adapter);
 //ListViewの設定ここまで
@@ -43,20 +47,21 @@ public class Preferences extends AppCompatActivity{
 				ListView listView1 = (ListView)adapterView;
 
 //何番目のListViewが押されたかによって開くアクティビティが変わる
-				Intent intent[] = new Intent[2];
+				Intent intent[] = new Intent[4];
 
 				for(int i=0; i<intent.length; i++)
 					intent[i] = new Intent(getApplicationContext(), SiteSettingActivity.class);
 
+				for(int i=3; i<intent.length; i++)
+					intent[i] = new Intent(getApplicationContext(), TimerSettingActivity.class);
+
 				switch (position){
 					case 0: //Site1
-						SiteSettingActivity.SaveNum = String.valueOf(position);
-						startActivity(intent[0]);
-						break;
-
 					case 1: //Site2
-						SiteSettingActivity.SaveNum = String.valueOf(position);
-						startActivity(intent[1]);
+					case 2: //Site3
+					case 3: //Timer
+						SaveNum = String.valueOf(position);
+						startActivity(intent[position]);
 						break;
 				}
 			}
@@ -85,11 +90,6 @@ public class Preferences extends AppCompatActivity{
 		};
 */
 
-/*
-		EditText editText = (EditText)findViewById(R.id.urlData1);
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-		sharedPreferences.edit().putString("SaveString", editText.getText().toString()).commit();
-*/
 
 	}
 }
