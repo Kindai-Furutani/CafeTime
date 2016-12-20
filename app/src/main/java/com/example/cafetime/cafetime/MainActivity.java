@@ -5,15 +5,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,7 +18,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
 	private ArrayList mItems = new ArrayList();
-	public EditText editText1 = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,27 +27,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		setSupportActionBar(toolbar);
 
 //タイトルバーの文字を変更
-		setTitle("ホーム");
+		setTitle("新着記事");
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!現在デバッグ中の箇所!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //ここからRSS取得の設定
-
-//		editText1 = (EditText) findViewById(R.id.url1);
-//		String urlText1 = editText1.getText().toString();  // <<== getText()がぬるぽのせいで動かない模様
-
-		String urlText1 = getText(R.string.url1).toString(); // <<== こいつでぬるぽは解決！
-
-		EditText editText = (EditText)findViewById(R.id.EditText);
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
 
 		ListView _listview = (ListView)findViewById(R.id.listView1);
 
-		RssParserTask task = new RssParserTask(this, mAdapter,_listview);
-//		task.execute("http://andante.in/i/feed/");
-		task.execute(urlText1);
+//task.executeを同時に複数回呼び出してしまわないよう対策 task.execcuteにsynchronize使えばもう少しスマートになるかもしれない
+		RssParserTask task[] = new RssParserTask[3];
+		for(int i=0; i<3; i++)
+			task[i] = new RssParserTask(this, mAdapter, _listview);
+
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+//設定値を取得し、task.executeを呼ぶ
+		String num = null;
+		for(int i=0; i<3; i++) {
+			num = String.valueOf(i);
+			task[i].execute(sharedPreferences.getString(num, null)); //task.executeを同時に複数回呼び出してしまわないよう対策
+		}
 		_listview.setOnItemClickListener(this);
-
-
 	}
 
 	@Override
@@ -62,8 +58,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		intent.putExtra("TITLE", item.getTitle());
 		intent.putExtra("DESCRIPTION", item.getDescription());
 		startActivity(intent);
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ここまでデバッグ中!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 	}
 
 

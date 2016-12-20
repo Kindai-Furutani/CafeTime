@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="e69d4b4436617c16c6d6656470c50100b0665d4c">
+        sha1="790d9f88bc4496e5d827accbed67327254505802">
         <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9dd2c66be5c29e988e6a3af55e9e24ce91107d84/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="904f39c3b10d53cf1a459b3323a72b66abe6bfd6">
+        sha1="f33b24b565092b54fa4337751e25f41d591c0a31">
         <dex dex="/home/c200/AndroidStudioProjects/CafeTime/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_48e78c2ce34fdd4209f21c79400529ff77e432e1/classes.dex" />
     </item>
     <item
