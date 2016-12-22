@@ -53,7 +53,7 @@ public class Preferences extends AppCompatActivity{
 					intent[i] = new Intent(getApplicationContext(), SiteSettingActivity.class);
 
 				for(int i=3; i<intent.length; i++)
-					intent[i] = new Intent(getApplicationContext(), TimerSettingActivity.class);
+					intent[i] = new Intent(getApplicationContext(), EndTimerSettingActivity.class);
 
 				SaveNum = String.valueOf(position);
 				startActivity(intent[position]);
