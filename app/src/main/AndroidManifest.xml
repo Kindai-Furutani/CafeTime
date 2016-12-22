@@ -24,6 +24,7 @@
 		<activity android:name=".ItemDetailActivity"/>
 		<activity android:name=".SiteSettingActivity"/>
 		<activity android:name=".TimerSettingActivity"/>
+		<activity android:name=".Browser"/>
 
 	</application>
 

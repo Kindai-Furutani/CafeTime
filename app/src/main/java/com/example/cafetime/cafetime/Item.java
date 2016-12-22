@@ -7,10 +7,12 @@ package com.example.cafetime.cafetime;
 public class Item {
 	private CharSequence mTitle;
 	private CharSequence mDescription;
+	private CharSequence mLink;
 
 	public Item(){
 		mTitle = "";
 		mDescription="";
+		mLink = "";
 	}
 
 	public CharSequence getDescription(){
@@ -27,6 +29,14 @@ public class Item {
 
 	public void setTitle(CharSequence title){
 		mTitle = title;
+	}
+
+	public CharSequence getLink(){
+		return mLink;
+	}
+
+	public void setLink(CharSequence link){
+		mLink = link;
 	}
 
 }

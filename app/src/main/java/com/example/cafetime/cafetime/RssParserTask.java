@@ -88,6 +88,9 @@ public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 							} else if (tag.equals("description")) {
 								//説明タグの中身の文字の事
 								currentItem.setDescription(parser.nextText());
+							} else if (tag.equals("link")) {
+								//リンクのURL
+								currentItem.setLink(parser.nextText());
 							}
 						}
 						break;

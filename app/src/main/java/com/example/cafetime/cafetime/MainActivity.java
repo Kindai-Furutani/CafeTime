@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+	public static String URL = null;
+
 	private ArrayList mItems = new ArrayList();
 
 	@Override
@@ -49,14 +51,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		}
 		_listview.setOnItemClickListener(this);
 	}
-
+//リストをタップした時
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		Item item = (Item)mItems.get(arg2);
+/*
 		Intent intent = new Intent(this, ItemDetailActivity.class);
 		intent.putExtra("TITLE", item.getTitle());
 		intent.putExtra("DESCRIPTION", item.getDescription());
+*/
+		URL = item.getLink().toString();
+		Intent intent = new Intent(this, Browser.class);
+
 		startActivity(intent);
 	}
 
