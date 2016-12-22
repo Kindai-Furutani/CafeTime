@@ -13,5 +13,5 @@ Git/GitHubの練習も兼ねて使ってみる。多分変な使い方とかめ�
 <br>
 ##Version
 AndroidStudio 2.2.3<br>
-AndroidAPI 25<br>
+AndroidAPI 22<br>
 AndroidVersion 5.1
