@@ -26,6 +26,7 @@
 		<activity android:name=".TimerSettingActivity"/>
 		<activity android:name=".Browser"/>
 
+		<service android:name="TimerService"/>
 	</application>
 
 <!-- インターネットを使用するための権限を追加 -->

@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			task[i].execute(sharedPreferences.getString(num, null)); //task.executeを同時に複数回呼び出してしまわないよう対策
 		}
 		_listview.setOnItemClickListener(this);
+
+//タイマーサービスを実行
+		Intent intent = new Intent(this, TimerService.class);
+		startService(intent);
 	}
 //リストをタップした時
 	@Override

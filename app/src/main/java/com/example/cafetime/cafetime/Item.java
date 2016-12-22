@@ -31,6 +31,7 @@ public class Item {
 		mTitle = title;
 	}
 
+//ここからxmlパーサで取得された内容から、Link(URL)に関する部分を抽出
 	public CharSequence getLink(){
 		return mLink;
 	}
