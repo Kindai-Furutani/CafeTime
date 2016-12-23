@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,13 +22,17 @@ public class SiteSettingActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_site_setting);
 
 //タイトルバーの文字を変更
-		setTitle("サイト設定");
+		setTitle("サイト設定" + (Preferences.SaveNum+1));
 
 //Activity開始時に設定値を読み込み
 		EditText editText = (EditText)findViewById(R.id.EditText);
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		editText.setText(sharedPreferences.getString(Preferences.SaveNum, null), TextView.BufferType.NORMAL);
 
+//とりあえず見かけだけスイッチの配置
+		Switch slideSwitch = (Switch)findViewById(R.id.slideSwitch);
+
+//セーブボタンにアクションを設定
 		Button saveButton = (Button)findViewById(R.id.SaveButton);
 		saveButton.setOnClickListener(new View.OnClickListener() {
 			@Override

@@ -6,25 +6,114 @@
     tools:context="com.example.cafetime.cafetime.WevView">
 
     <WebView
-        android:id="@+id/webView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+		android:id="@+id/webView1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"
+		android:layout_above="@+id/textUsage">
+
+	</WebView>
 
     <TextView
-        android:id="@+id/text_view"
-        android:layout_width="770dp"
-        android:layout_height="wrap_content"
-        android:text="アプリ使用時間：OO時間OO分OO秒"
-        android:gravity="bottom|center"
-        android:background="#00ffbb"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/webView1"
-        android:layout_alignStart="@+id/webView1" />
+		android:id="@+id/textUsage"
+		android:layout_height="wrap_content"
+		android:text="使用時間："
+		android:gravity="right"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_alignParentBottom="true"
+		android:layout_alignLeft="@+id/webView1"
+		android:layout_alignStart="@+id/webView1"
+		android:layout_width="120dip"/>
+
+	<TextView
+		android:id="@+id/useHour"
+		android:layout_height="wrap_content"
+		android:gravity="bottom|right"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/textUsage"
+		android:layout_width="32dip"/>
+
+	<TextView
+		android:id="@+id/textHour"
+		android:layout_height="wrap_content"
+		android:text="時間"
+		android:gravity="left"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/useHour"
+		android:layout_width="42dip"/>
+
+	<TextView
+		android:id="@+id/useMinute"
+		android:layout_height="wrap_content"
+		android:gravity="right"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/textHour"
+		android:layout_width="32dip"/>
+
+	<TextView
+		android:id="@+id/textMinute"
+		android:layout_height="wrap_content"
+		android:text="分"
+		android:gravity="left"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/useMinute"
+		android:layout_width="22dip"/>
+
+	<TextView
+		android:id="@+id/useSecond"
+		android:layout_height="wrap_content"
+		android:gravity="bottom|right"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/textMinute"
+		android:layout_width="32dip"/>
+
+	<TextView
+		android:id="@+id/textSecond"
+		android:layout_height="wrap_content"
+		android:text="秒"
+		android:gravity="left"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/useSecond"
+		android:layout_width="22dip"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text=""
+		android:gravity="left"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/textSecond"
+		android:layout_width="100dip"/>
 
 </RelativeLayout>

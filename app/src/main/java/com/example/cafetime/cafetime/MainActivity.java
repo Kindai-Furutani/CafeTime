@@ -22,8 +22,9 @@ import static java.lang.Boolean.FALSE;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-	public static String URL = null;
+	public static String URL = "http://www.google.com";
 	public static Boolean Viewable = FALSE;
+	public static Boolean ServiceStarter = TRUE;
 
 	private ArrayList mItems = new ArrayList();
 
@@ -41,10 +42,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //タイトルバーの文字を変更
 		setTitle("新着記事");
 
-//タイマーサービスを実行
-//		Intent intent = new Intent(this, TimerService.class);
-//		startService(intent);
+		if(ServiceStarter == TRUE) {
+//ストップウォッチサービスを開始
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!なぜか動かない!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			Intent intent1 = new Intent(this, StopWatchService.class);
+			startService(intent1);
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ここまで!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+//タイマーサービスを開始
+			Intent intent2 = new Intent(this, TimerService.class);
+			startService(intent2);
+
+			Toast.makeText(this, "StartedServices", Toast.LENGTH_SHORT).show();
+
+			ServiceStarter = FALSE;
+		}
 
 //ここからRSS取得の設定
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
@@ -100,18 +112,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
 
+//設定画面を呼び出し
 		if (id == R.id.action_settings) {
 			Intent intent = new Intent(this, Preferences.class);
 			startActivity(intent);
 		}
 
+//画面を再読み込み
 		if (id == R.id.action_reload) {
 			reload();
+		}
+
+//オフライン試験用に追加
+		if(id == R.id.action_webView){
+			Intent intent = new Intent(this, Browser.class);
+			startActivity(intent);
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
 
+//画面を再読み込みするための設定
 	public void reload(){
 		Intent intent = getIntent();
 		overridePendingTransition(0,0);
@@ -122,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		startActivity(intent);
 	}
 
+//起動時に閲覧可能時間内かどうかの判定
 	public void startJudgement(){
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		Calendar calendar = Calendar.getInstance();
@@ -142,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		if(NowTime > StartTime2)
 			if(NowTime < EndTime2)
 				Viewable = TRUE;
-
+//DebugMessage
 		Toast.makeText(this, "Judge = " + Viewable, Toast.LENGTH_SHORT).show();
 	}
 }
