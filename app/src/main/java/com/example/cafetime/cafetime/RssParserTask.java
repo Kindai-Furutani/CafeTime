@@ -16,6 +16,9 @@ import android.os.AsyncTask;
 import android.util.Xml;
 import android.widget.ListView;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 //RssParserTask.java
 public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 
@@ -89,7 +92,7 @@ public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 								//説明タグの中身の文字の事
 								currentItem.setDescription(parser.nextText());
 							} else if (tag.equals("link")) {
-//リンクのURL
+							//リンクのURL
 								currentItem.setLink(parser.nextText());
 							}
 						}
@@ -106,6 +109,7 @@ public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		MainActivity.GetRssLock = FALSE;
 		return mAdapter;
 	}
 }

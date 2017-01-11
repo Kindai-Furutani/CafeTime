@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static Intent RunningIntent = null;
 	public static Boolean Viewable = FALSE;
 	public static Boolean ServiceStarter = TRUE;
+	public static Boolean GetRssLock = FALSE;
 
 	private ArrayList mItems = new ArrayList();
 
@@ -51,10 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		if(ServiceStarter == TRUE) {
 
 //ストップウォッチサービスを開始
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!なぜか動かない!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			Intent intent1 = new Intent(this, StopWatchService.class);
 			startService(intent1);
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ここまで!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //タイマーサービスを開始
 			Intent intent2 = new Intent(this, TimerService.class);
@@ -70,21 +69,33 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 		ListView _listview = (ListView)findViewById(R.id.listView1);
 
-//task.executeを同時に複数回呼び出してしまわないよう対策 task.execcuteにsynchronize使えばもう少しスマートになるかもしれない
+//task.executeを同時に複数回呼び出してしまわないよう複数生成
 		RssParserTask task[] = new RssParserTask[3];
-		for(int i=0; i<3; i++)
-			task[i] = new RssParserTask(this, mAdapter, _listview);
-
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+		for(int i=0; i<3; i++) {
+			task[i] = new RssParserTask(this, mAdapter, _listview);
+		}
 
 		if(Viewable == FALSE)
 			Toast.makeText(this, "閲覧可能時間外", Toast.LENGTH_SHORT).show();
 		else {
-//設定値を取得し、task.executeを呼ぶ
+		//設定値を取得し、task.executeを呼ぶ
 			String num = null;
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0, f = 0; i < 3; i++) {
 				num = String.valueOf(i);
-				task[i].execute(sharedPreferences.getString(num, null)); //task.executeを同時に複数回呼び出してしまわないよう対策
+				if(sharedPreferences.getBoolean("settingUse" + i, FALSE) == TRUE) { //設定で使用するになっている場合のみ読み込む
+				//////////////////設定値がnullの場合は実行しないようにしたかったけど効いてない？//////////////////////////
+					if(sharedPreferences.getString(num, null) != null) {
+						GetRssLock = TRUE;
+						task[i].execute(sharedPreferences.getString(num, null)); //task.executeを同時に複数回呼び出してしまわないよう対策
+					}
+				}
+				do{ //RssParserTaskが動作している間はループを回すことで擬似的にロックし、処理が終わったらロックを解除する
+					f++;
+					if(f > 10000000) //長過ぎるととりあえずで終了させる
+						GetRssLock = FALSE;
+				}while(GetRssLock == TRUE);
 			}
 			_listview.setOnItemClickListener(this);
 		}
