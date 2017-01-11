@@ -26,8 +26,10 @@
 		<activity android:name=".StartTimerSettingActivity"/>
 		<activity android:name=".EndTimerSettingActivity"/>
 		<activity android:name=".Browser"/>
+		<activity android:name=".PopupNotification"/>
 
 		<service android:name="TimerService"/>
+		<service android:name=".StopWatchService"/>
 	</application>
 
 <!-- インターネットを使用するための権限を追加 -->

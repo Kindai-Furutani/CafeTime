@@ -11,10 +11,9 @@ import android.widget.TextView;
 
 
 public class Browser extends Activity {
-	static TextView useHour = null;
-	static TextView useMinute = null;
-	static TextView useSecond = null;
-
+	static TextView useHour;
+	static TextView useMinute;
+	static TextView useSecond;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,11 +34,13 @@ public class Browser extends Activity {
 		useHour = (TextView)findViewById(R.id.useHour);
 		useMinute = (TextView)findViewById(R.id.useMinute);
 		useSecond = (TextView)findViewById(R.id.useSecond);
+
+		
 	}
 
-	public static void setTime(){
-		useHour.setText(StopWatchService.Hor);
-		useMinute.setText(StopWatchService.Min);
-		useSecond.setText(StopWatchService.Sec);
+	public static void setTime(int Hor, int Min, int Sec){
+		useHour.setText(Hor);
+		useMinute.setText(Min);
+		useSecond.setText(Sec);
 	}
 }

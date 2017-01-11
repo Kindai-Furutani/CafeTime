@@ -27,7 +27,6 @@ public class StopWatchService extends Service{
 	public static int Min = 0;
 	public static int Hor = 0;
 
-
 	@Override
 	public void onCreate() {
 	}
@@ -52,7 +51,7 @@ public class StopWatchService extends Service{
 							Min = 0;
 							Hor++;
 						}
-						Browser.setTime();
+						//Browser.setTime(Hor, Min, Sec);
 
 						if(Sec%10 !=0)
 							Toast.makeText(StopWatchService.this, "Hour = " + Hor
@@ -65,7 +64,6 @@ public class StopWatchService extends Service{
 
 		return START_STICKY;
 	}
-
 
 	@Override
 	public void onDestroy() {

@@ -24,8 +24,6 @@ public class StartTimerSettingActivity extends AppCompatActivity {
 	int Minute;
 	int Time;
 
-
-
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_timer_setting);
@@ -47,7 +45,6 @@ public class StartTimerSettingActivity extends AppCompatActivity {
 				saveButtonClick();
 			}
 		});
-
 	}
 
 //保存

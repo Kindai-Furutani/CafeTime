@@ -23,6 +23,7 @@ import static java.lang.Boolean.FALSE;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
 	public static String URL = "http://www.google.com";
+	public static String NowActivity = null;
 	public static Boolean Viewable = FALSE;
 	public static Boolean ServiceStarter = TRUE;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		super.onCreate(savedInstanceState);
 
 		Viewable = FALSE;
+		NowActivity = "MainActivity";
 		startJudgement();
 
 		setContentView(R.layout.activity_main);
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		setTitle("新着記事");
 
 		if(ServiceStarter == TRUE) {
+
 //ストップウォッチサービスを開始
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!なぜか動かない!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			Intent intent1 = new Intent(this, StopWatchService.class);
@@ -126,6 +129,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //オフライン試験用に追加
 		if(id == R.id.action_webView){
 			Intent intent = new Intent(this, Browser.class);
+			startActivity(intent);
+		}
+
+//ポップアップテスト
+		if(id == R.id.action_popup){
+			Intent intent = new Intent(this, PopupNotification.class);
 			startActivity(intent);
 		}
 

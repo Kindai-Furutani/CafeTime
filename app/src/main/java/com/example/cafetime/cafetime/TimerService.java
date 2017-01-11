@@ -32,9 +32,6 @@ public class TimerService extends Service{
 	int NowHour;
 	int NowMinute;
 	int NowTime;
-	public static int Sec = 0;
-	public static int Min = 0;
-	public static int Hor = 0;
 
 	@Override
 	public void onCreate() {
