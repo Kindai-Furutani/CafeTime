@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 						task[i].execute(sharedPreferences.getString(num, null)); //task.executeを同時に複数回呼び出してしまわないよう対策
 					}
 				}
-				do{ //RssParserTaskが動作している間はループを回すことで擬似的にロックし、処理が終わったらロックを解除する
+				do{ //RssParserTaskが動作している間はループを回すことで擬似的にロックし、処理が終わったらロックを解除することで表示処理の安定化
 					f++;
 					if(f > 10000000) //長過ぎるととりあえずで終了させる
 						GetRssLock = FALSE;
