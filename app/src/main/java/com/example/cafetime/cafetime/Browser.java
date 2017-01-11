@@ -2,6 +2,7 @@ package com.example.cafetime.cafetime;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.webkit.WebView;
@@ -18,6 +19,8 @@ public class Browser extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_browser);
+
+		MainActivity.RunningIntent = new Intent(this, PopupNotification.class);
 
 		//レイアウトで指定したWebViewのIDを指定する。
 		WebView  myWebView = (WebView)findViewById(R.id.webView1);

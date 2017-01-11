@@ -23,6 +23,8 @@ public class Preferences extends AppCompatActivity{
 
 		setContentView(R.layout.activity_preferences);
 
+		MainActivity.RunningIntent = new Intent(this, PopupNotification.class);
+
 //タイトルバーの文字を変更
 		setTitle("設定");
 

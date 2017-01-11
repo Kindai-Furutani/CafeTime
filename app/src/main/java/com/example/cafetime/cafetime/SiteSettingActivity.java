@@ -1,5 +1,6 @@
 package com.example.cafetime.cafetime;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,15 +14,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 /**
  * Created by c200 on 16/12/15.
  */
 
-public class SiteSettingActivity extends AppCompatActivity {
+public class SiteSettingActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+
+	public ToggleButton toggleButton;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_site_setting);
+
+		MainActivity.RunningIntent = new Intent(this, PopupNotification.class);
 
 //タイトルバーの文字を変更
 		setTitle("サイト設定" + (Preferences.SaveNum+1));
@@ -32,7 +40,9 @@ public class SiteSettingActivity extends AppCompatActivity {
 		editText.setText(sharedPreferences.getString(Preferences.SaveNum, null), TextView.BufferType.NORMAL);
 
 //とりあえず見かけだけスイッチ配置してインスタンス化
-		ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
+		toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
+		toggleButton.setChecked(sharedPreferences.getBoolean("settingUse" + Preferences.SaveNum, FALSE));
+		toggleButton.setOnCheckedChangeListener(this);
 
 //セーブボタンにアクションを設定
 		Button saveButton = (Button)findViewById(R.id.SaveButton);
@@ -50,12 +60,20 @@ public class SiteSettingActivity extends AppCompatActivity {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		sharedPreferences.edit().putString(Preferences.SaveNum, editText.getText().toString()).commit();
 
-		ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
-//		sharedPreferences.edit().putBoolean(("settingUse" + Preferences.SaveNum), toggleSwitch.);
-
 //確認メッセージの表示
 		Toast.makeText(this, editText.getText().toString() + "として保存しました", Toast.LENGTH_LONG).show();
 
 		finish();
+	}
+
+//ToggleButtonが押された時に呼び出される
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+		toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		sharedPreferences.edit().putBoolean(("settingUse" + Preferences.SaveNum), isChecked).commit();
+
+//確認メッセージの表示
+		Toast.makeText(this, String.valueOf(isChecked), Toast.LENGTH_LONG).show();
+
 	}
 }

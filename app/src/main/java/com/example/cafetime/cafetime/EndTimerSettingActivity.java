@@ -33,6 +33,8 @@ public class EndTimerSettingActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_timer_setting);
 
+		MainActivity.RunningIntent = new Intent(this, PopupNotification.class);
+
 //タイトルバーの文字を変更
 		setTitle("閲覧可能時刻(終了)");
 

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 	public static String URL = "http://www.google.com";
 	public static String NowActivity = null;
+	public static Intent RunningIntent = null;
 	public static Boolean Viewable = FALSE;
 	public static Boolean ServiceStarter = TRUE;
 
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		startJudgement();
 
 		setContentView(R.layout.activity_main);
+
+		RunningIntent = new Intent(this, PopupNotification.class);
+
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 

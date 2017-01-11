@@ -28,7 +28,9 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/toggleButton"
 		android:layout_below="@+id/EditText"
-		android:layout_alignParentEnd="true"/>
+		android:layout_alignParentEnd="true"
+		android:textOff="使用しない"
+		android:textOn="使用する"/>
 
 
 </RelativeLayout>

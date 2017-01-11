@@ -12,33 +12,44 @@ import android.os.Bundle;
 
 public class PopupNotification extends Activity {
 
+	public static String CalledBy;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
-		alertDlg.setTitle("title");
-		alertDlg.setMessage("Massage");
+		if(CalledBy == "StopWatchService"){
+			CalledBy = null;
 
-/*
-		alertDlg.setPositiveButton(
-			"新着一覧",
-			new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
+			AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+			alertDlg.setTitle("経過時刻");
+			alertDlg.setMessage("使用時間が" + StopWatchService.Hor + "時間" + StopWatchService.Min + "分を経過しました");
 
-				}
-			});
-*/
+			alertDlg.setNegativeButton(
+					"閉じる",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							finish();
+						}
+					});
 
-		alertDlg.setNegativeButton(
-			"閉じる",
-			new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					finish();
-				}
-			});
+			alertDlg.create().show();
+		}
+		else {
+			AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+			alertDlg.setTitle("title");
+			alertDlg.setMessage("Massage");
 
-		alertDlg.create().show();
+			alertDlg.setNegativeButton(
+					"閉じる",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							finish();
+						}
+					});
+
+			alertDlg.create().show();
+		}
 	}
 }
