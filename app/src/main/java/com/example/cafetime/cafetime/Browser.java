@@ -10,15 +10,26 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 
 public class Browser extends Activity {
 	static TextView useHour;
 	static TextView useMinute;
-	static TextView useSecond;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_browser);
+
+		useHour = (TextView)findViewById(R.id.useHour);
+		useMinute = (TextView)findViewById(R.id.useMinute);
+
+		useHour.setText(String.valueOf(StopWatchService.Hor));
+		useMinute.setText(String.valueOf(StopWatchService.Min));
+
+		MainActivity.BrowserActive = TRUE;
 
 		MainActivity.RunningIntent = new Intent(this, PopupNotification.class);
 
@@ -34,16 +45,10 @@ public class Browser extends Activity {
 		//jacascriptを許可する
 		myWebView.getSettings().setJavaScriptEnabled(true);
 
-		useHour = (TextView)findViewById(R.id.useHour);
-		useMinute = (TextView)findViewById(R.id.useMinute);
-		useSecond = (TextView)findViewById(R.id.useSecond);
-
-		
 	}
 
-	public static void setTime(int Hor, int Min, int Sec){
-		useHour.setText(Hor);
-		useMinute.setText(Min);
-		useSecond.setText(Sec);
+	public static void setTime(int Hor, int Min){
+		useHour.setText(String.valueOf(Hor));
+		useMinute.setText(String.valueOf(Min));
 	}
 }

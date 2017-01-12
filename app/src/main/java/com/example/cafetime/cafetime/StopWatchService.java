@@ -47,7 +47,8 @@ public class StopWatchService extends Service{
 							Min = 0;
 							Hor++;
 						}
-						//Browser.setTime(Hor, Min, Sec);
+						if(MainActivity.BrowserActive == TRUE)
+							Browser.setTime(Hor, Min);
 
 						if(Min%15 == 0) { //とりあえず15分毎にポップアップ呼び出す設定
 							Toast.makeText(StopWatchService.this, "使用開始から" + Hor + "時間" + Min + "分が経過しました", Toast.LENGTH_SHORT).show();

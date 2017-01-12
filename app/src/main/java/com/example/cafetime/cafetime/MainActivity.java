@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static Boolean Viewable = FALSE;
 	public static Boolean ServiceStarter = TRUE;
 	public static Boolean GetRssLock = FALSE;
+	public static Boolean BrowserActive = FALSE;
 
 	private ArrayList mItems = new ArrayList();
 
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		startJudgement();
 
 		setContentView(R.layout.activity_main);
+
+		BrowserActive = FALSE;
 
 		RunningIntent = new Intent(this, PopupNotification.class);
 
