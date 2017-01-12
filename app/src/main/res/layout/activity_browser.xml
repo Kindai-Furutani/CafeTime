@@ -79,18 +79,4 @@
 		android:layout_toEndOf="@+id/useMinute"
 		android:layout_width="22dip"/>
 
-
-
-	<TextView
-		android:layout_height="wrap_content"
-		android:text=""
-		android:gravity="left"
-		android:background="#00ffbb"
-		android:layout_gravity="bottom"
-		android:layout_x="72dp"
-		android:layout_y="478dp"
-		android:layout_alignParentBottom="true"
-		android:layout_toEndOf="@+id/textMinute"
-		android:layout_width="100dip"/>
-
 </RelativeLayout>

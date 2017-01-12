@@ -22,9 +22,8 @@ import static java.lang.Boolean.TRUE;
 
 public class StopWatchService extends Service{
 	private Timer mTimer = null;
-	Handler mHandler = new Handler();
-	public static int Sec = 0;
-	public static int Min = 0;
+	Handler mHandler = new Handler();;
+	public static int Min = -1;
 	public static int Hor = 0;
 
 	@Override
@@ -50,7 +49,7 @@ public class StopWatchService extends Service{
 						if(MainActivity.BrowserActive == TRUE)
 							Browser.setTime(Hor, Min);
 
-						if(Min%15 == 0) { //とりあえず15分毎にポップアップ呼び出す設定
+						if(Min%15 == 0 && (Hor !=0 && Min != 0)) { //とりあえず15分毎にポップアップ呼び出す設定
 							Toast.makeText(StopWatchService.this, "使用開始から" + Hor + "時間" + Min + "分が経過しました", Toast.LENGTH_SHORT).show();
 							PopupNotification.CalledBy = "StopWatchService";
 
