@@ -23,7 +23,7 @@ import static java.lang.Boolean.TRUE;
 public class StopWatchService extends Service{
 	private Timer mTimer = null;
 	Handler mHandler = new Handler();;
-	public static int Min = 0;
+	public static int Min = -1;
 	public static int Hor = 0;
 
 	@Override
@@ -50,13 +50,14 @@ public class StopWatchService extends Service{
 							Browser.setTime(Hor, Min);
 
 						if(Min%15 == 0) { //とりあえず15分毎にポップアップ呼び出す設定
-							Toast.makeText(StopWatchService.this, "使用開始から" + Hor + "時間" + Min + "分が経過しました", Toast.LENGTH_SHORT).show();
-							PopupNotification.CalledBy = "StopWatchService";
+							if((Min+Hor)!=0) {
+								Toast.makeText(StopWatchService.this, "使用開始から" + Hor + "時間" + Min + "分が経過しました", Toast.LENGTH_SHORT).show();
+								PopupNotification.CalledBy = "StopWatchService";
 
-						//現在起動しているActivityからポップアップを呼び出す
-							MainActivity.RunningIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-							startActivity(MainActivity.RunningIntent);
-
+							//現在起動しているActivityからポップアップを呼び出す
+								MainActivity.RunningIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								startActivity(MainActivity.RunningIntent);
+							}
 						}
 					}
 				});
@@ -68,6 +69,7 @@ public class StopWatchService extends Service{
 
 	@Override
 	public void onDestroy() {
+		super.onDestroy();
 
 		// タイマー停止
 		if( mTimer != null ){

@@ -94,10 +94,10 @@ public class TimerService extends Service{
 		return START_STICKY;
 	}
 
-/*
+
 	@Override
 	public void onDestroy() {
-		Log.i("TestService", "onDestroy");
+		super.onDestroy();
 
 		// タイマー停止
 		if( mTimer != null ){
@@ -106,7 +106,7 @@ public class TimerService extends Service{
 		}
 		Toast.makeText(this, "MyService onDestroy", Toast.LENGTH_SHORT).show();
 	}
-*/
+
 
 	@Override
 	public IBinder onBind(Intent arg0) {

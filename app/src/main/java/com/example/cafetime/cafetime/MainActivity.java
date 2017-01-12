@@ -214,7 +214,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 	@Override
 	public void onDestroy() {
-		UsedTime = (StopWatchService.Hor * 100) + StopWatchService.Min;
+		super.onDestroy();
+
+		UsedTime = (StopWatchService.Hor * 60) + StopWatchService.Min;
 
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -224,5 +226,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		else{
 			sharedPreferences.edit().putInt("TodayUse", UsedTime + sharedPreferences.getInt("TodayUse", 0)).commit();
 		}
+		StopWatchService.Hor = 0;
+		StopWatchService.Min = 0;
 	}
 }

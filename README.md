@@ -13,5 +13,9 @@ Git/GitHubの練習も兼ねて使ってみる。多分変な使い方とかめ�
 <br>
 ##Version
 AndroidStudio 2.2.3<br>
-AndroidAPI 22<br>
-AndroidVersion 5.1
+対応 API21（Android5.0）以降<br>
+Gradle 2.14.1<br>
+<br>
+<br>
+##連絡先
+1410990084m(a)hiro.kindai.ac.jp
