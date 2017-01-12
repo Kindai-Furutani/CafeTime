@@ -32,7 +32,7 @@ public class SiteSettingActivity extends AppCompatActivity implements CompoundBu
 		MainActivity.RunningIntent = new Intent(this, PopupNotification.class);
 
 //タイトルバーの文字を変更
-		setTitle("サイト設定" + (Preferences.SaveNum+1));
+		setTitle("サイト設定" + (Integer.parseInt(Preferences.SaveNum) + 1));
 
 //Activity開始時に設定値を読み込み
 		EditText editText = (EditText)findViewById(R.id.EditText);
