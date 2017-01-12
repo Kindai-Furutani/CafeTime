@@ -40,6 +40,7 @@ public class Preferences extends AppCompatActivity{
 		adapter.add("Site3");
 		adapter.add("Time1");
 		adapter.add("Time2");
+		adapter.add("Graph");
 
 		listView.setAdapter(adapter);
 //ListViewの設定ここまで
@@ -56,6 +57,8 @@ public class Preferences extends AppCompatActivity{
 
 				for(int i=3; i<intent.length; i++)
 					intent[i] = new Intent(getApplicationContext(), EndTimerSettingActivity.class);
+
+				intent[5] = new Intent(getApplicationContext(), GraphViewActivity.class);
 
 				SaveNum = String.valueOf(position);
 				startActivity(intent[position]);

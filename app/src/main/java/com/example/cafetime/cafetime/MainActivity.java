@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import static java.lang.Boolean.TRUE;
 import static java.lang.Boolean.FALSE;
@@ -22,6 +24,8 @@ import static java.lang.Boolean.FALSE;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+	public static int UsedTime;
+	public static int day;
 	public static String URL = "http://www.google.com";
 	public static String NowActivity = null;
 	public static Intent RunningIntent = null;
@@ -101,6 +105,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 				}while(GetRssLock == TRUE);
 			}
 			_listview.setOnItemClickListener(this);
+		}
+
+		Date date = new Date();
+		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
+		gc.setGregorianChange(date);
+		day = gc.get(Calendar.DATE);
+
+		if(day != sharedPreferences.getInt("Today", 0)) { //グラフ更新日が今日でない場合は古いデータをずらす
+			sharedPreferences.edit().putInt("2dAgo", sharedPreferences.getInt("1dAgo", 0)).commit();
+			sharedPreferences.edit().putInt("1dAgo", sharedPreferences.getInt("Today", 0)).commit();
+			sharedPreferences.edit().putInt("Today", day).commit();
+			sharedPreferences.edit().putInt("2dAgoUse", sharedPreferences.getInt("1dAgoUse", 0)).commit();
+			sharedPreferences.edit().putInt("1dAgoUse", sharedPreferences.getInt("TodayUse", 0)).commit();
 		}
 	}
 //リストをタップした時
@@ -193,5 +210,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 				Viewable = TRUE;
 //DebugMessage
 		Toast.makeText(this, "Judge = " + Viewable, Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void onDestroy() {
+		UsedTime = (StopWatchService.Hor * 100) + StopWatchService.Min;
+
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+		if(day != sharedPreferences.getInt("Today", 0)) { //グラフ更新日が今日でない場合はそのまま書き込み
+			sharedPreferences.edit().putInt("TodayUse", UsedTime).commit();
+		}
+		else{
+			sharedPreferences.edit().putInt("TodayUse", UsedTime + sharedPreferences.getInt("TodayUse", 0)).commit();
+		}
 	}
 }

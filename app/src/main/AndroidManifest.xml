@@ -27,6 +27,7 @@
 		<activity android:name=".EndTimerSettingActivity"/>
 		<activity android:name=".Browser"/>
 		<activity android:name=".PopupNotification"/>
+		<activity android:name=".GraphViewActivity"/>
 
 		<service android:name="TimerService"/>
 		<service android:name=".StopWatchService"/>
