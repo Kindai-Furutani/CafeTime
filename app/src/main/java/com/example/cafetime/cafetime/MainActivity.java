@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static Boolean BrowserActive = FALSE;
 	public static Boolean AppActiv = FALSE;
 	public static Boolean ServiceActiv = FALSE;
+	public static Boolean ServiceKill = TRUE;
 
 	private ArrayList mItems = new ArrayList();
 
@@ -158,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 //画面を再読み込み
 		if (id == R.id.action_reload) {
+			ServiceKill = FALSE;
 			reload();
 		}
 
@@ -217,40 +219,50 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		super.onDestroy();
 		UsedTime = (StopWatchService.Hor * 60) + StopWatchService.Min;
 
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		if(ServiceKill == TRUE) {
+			SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-		if(day != sharedPreferences.getInt("Today", 0)) { //グラフ更新日が今日でない場合はそのまま書き込み
-			sharedPreferences.edit().putInt("TodayUse", UsedTime).commit();
+			if(day != sharedPreferences.getInt("Today", 0)) { //グラフ更新日が今日でない場合はそのまま書き込み
+				sharedPreferences.edit().putInt("TodayUse", UsedTime).commit();
+			}
+			else{
+				sharedPreferences.edit().putInt("TodayUse", UsedTime + sharedPreferences.getInt("TodayUse", 0)).commit();
+			}
+			StopWatchService.Hor = 0;
+			StopWatchService.Min = 0;
+
+			Intent intent;
+			intent = new Intent(this, StopWatchService.class);
+			stopService(intent);
+
+			intent = new Intent(this, TimerService.class);
+			stopService(intent);
+
+			ServiceActiv = FALSE;
+
+			Toast.makeText(this, "MainActivity onDestroy", Toast.LENGTH_SHORT).show();
 		}
 		else{
-			sharedPreferences.edit().putInt("TodayUse", UsedTime + sharedPreferences.getInt("TodayUse", 0)).commit();
+			Toast.makeText(this, "Called MainActivity onDestroy\n" +
+					"But Services keep working", Toast.LENGTH_SHORT).show();
 		}
-		StopWatchService.Hor = 0;
-		StopWatchService.Min = 0;
-
-		Intent intent;
-
-		intent = new Intent(this, StopWatchService.class);
-		stopService(intent);
-
-		intent = new Intent(this, TimerService.class);
-		stopService(intent);
-
-		ServiceActiv = FALSE;
+		ServiceKill = TRUE;
 	}
 
 	@Override
 	public void onResume(){
 		super.onResume();
-		if(AppActiv == FALSE)
+		if(AppActiv == FALSE) {
+			ServiceKill = FALSE;
 			reload();
+		}
 
 		AppActiv = TRUE;
+		ServiceActiv = TRUE;
 	}
 
 	@Override
 	public void onPause(){
 		super.onPause();
-		AppActiv = FALSE;
 	}
 }
