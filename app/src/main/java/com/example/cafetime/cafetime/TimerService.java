@@ -104,7 +104,7 @@ public class TimerService extends Service{
 			mTimer.cancel();
 			mTimer = null;
 		}
-		Toast.makeText(this, "MyService onDestroy", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "TimerService onDestroy", Toast.LENGTH_SHORT).show();
 	}
 
 

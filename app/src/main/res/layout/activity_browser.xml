@@ -17,29 +17,30 @@
 
 	</WebView>
 
-    <TextView
-		android:id="@+id/textUsage"
-		android:layout_height="wrap_content"
-		android:text="使用時間："
-		android:gravity="right"
-		android:background="#00ffbb"
-		android:layout_gravity="bottom"
-		android:layout_alignParentBottom="true"
-		android:layout_alignLeft="@+id/webView1"
-		android:layout_alignStart="@+id/webView1"
-		android:layout_width="80dip"/>
-
 	<TextView
-		android:id="@+id/useHour"
+		android:id="@+id/textMinute"
 		android:layout_height="wrap_content"
-		android:gravity="bottom|right"
+		android:text="分"
+		android:gravity="left"
 		android:background="#00ffbb"
 		android:layout_gravity="bottom"
 		android:layout_x="72dp"
 		android:layout_y="478dp"
+		android:layout_width="22dip"
 		android:layout_alignParentBottom="true"
-		android:layout_toEndOf="@+id/textUsage"
-		android:layout_width="22dip"/>
+		android:layout_alignParentEnd="true"/>
+
+	<TextView
+		android:id="@+id/useMinute"
+		android:layout_height="wrap_content"
+		android:gravity="right"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_width="22dip"
+		android:layout_alignParentBottom="true"
+		android:layout_toStartOf="@+id/textMinute"/>
 
 	<TextView
 		android:id="@+id/textHour"
@@ -50,33 +51,41 @@
 		android:layout_gravity="bottom"
 		android:layout_x="72dp"
 		android:layout_y="478dp"
+		android:layout_width="32dip"
 		android:layout_alignParentBottom="true"
-		android:layout_toEndOf="@+id/useHour"
-		android:layout_width="32dip"/>
+		android:layout_toStartOf="@+id/useMinute"/>
 
 	<TextView
-		android:id="@+id/useMinute"
+		android:id="@+id/useHour"
 		android:layout_height="wrap_content"
+		android:gravity="bottom|right"
+		android:background="#00ffbb"
+		android:layout_gravity="bottom"
+		android:layout_x="72dp"
+		android:layout_y="478dp"
+		android:layout_width="22dip"
+		android:layout_alignParentBottom="true"
+		android:layout_toStartOf="@+id/textHour"/>
+
+	<TextView
+		android:id="@+id/textUsage"
+		android:layout_height="wrap_content"
+		android:text="使用時間："
 		android:gravity="right"
 		android:background="#00ffbb"
 		android:layout_gravity="bottom"
-		android:layout_x="72dp"
-		android:layout_y="478dp"
+		android:layout_width="80dip"
 		android:layout_alignParentBottom="true"
-		android:layout_toEndOf="@+id/textHour"
-		android:layout_width="22dip"/>
+		android:layout_toStartOf="@+id/useHour"/>
 
-	<TextView
-		android:id="@+id/textMinute"
+	<Button
+		android:text="ブラウザを閉じる"
+		android:gravity="bottom"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="分"
-		android:gravity="left"
-		android:background="#00ffbb"
-		android:layout_gravity="bottom"
-		android:layout_x="72dp"
-		android:layout_y="478dp"
-		android:layout_alignParentBottom="true"
-		android:layout_toEndOf="@+id/useMinute"
-		android:layout_width="22dip"/>
+		android:id="@+id/CloseBrowser"
+		android:layout_alignBottom="@+id/textUsage"
+		android:layout_alignParentStart="true"
+		android:layout_toStartOf="@+id/textUsage"/>
 
 </RelativeLayout>

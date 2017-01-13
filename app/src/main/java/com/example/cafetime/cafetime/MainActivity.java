@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static Boolean ServiceStarter = TRUE;
 	public static Boolean GetRssLock = FALSE;
 	public static Boolean BrowserActive = FALSE;
+	public static Boolean AppActiv = TRUE;
 
 	private ArrayList mItems = new ArrayList();
 
@@ -56,20 +57,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //タイトルバーの文字を変更
 		setTitle("新着記事");
 
-		if(ServiceStarter == TRUE) {
-
 //ストップウォッチサービスを開始
-			Intent intent1 = new Intent(this, StopWatchService.class);
-			startService(intent1);
+		Intent intent;
+		intent = new Intent(this, StopWatchService.class);
+		startService(intent);
 
 //タイマーサービスを開始
-			Intent intent2 = new Intent(this, TimerService.class);
-			startService(intent2);
+		intent = new Intent(this, TimerService.class);
+		startService(intent);
 
-			Toast.makeText(this, "StartedServices", Toast.LENGTH_SHORT).show();
-
-			ServiceStarter = FALSE;
-		}
+		Toast.makeText(this, "StartedServices", Toast.LENGTH_SHORT).show();
 
 //ここからRSS取得の設定
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
@@ -100,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 				}
 				do{ //RssParserTaskが動作している間はループを回すことで擬似的にロックし、処理が終わったらロックを解除することで表示処理の安定化
 					f++;
-					if(f > 10000000) //長過ぎるととりあえずで終了させる
+					if(f > 1000000000) //長過ぎるととりあえずで終了させる
 						GetRssLock = FALSE;
 				}while(GetRssLock == TRUE);
 			}
@@ -112,18 +109,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		gc.setGregorianChange(date);
 		day = gc.get(Calendar.DATE);
 
-		if(day != sharedPreferences.getInt("Today", 0)) { //グラフ更新日が今日でない場合は古いデータをずらす
+//グラフ更新日が今日でない場合は古いデータをずらす
+		if(day != sharedPreferences.getInt("Today", 0)) {
 			sharedPreferences.edit().putInt("2dAgo", sharedPreferences.getInt("1dAgo", 0)).commit();
 			sharedPreferences.edit().putInt("1dAgo", sharedPreferences.getInt("Today", 0)).commit();
 			sharedPreferences.edit().putInt("Today", day).commit();
 			sharedPreferences.edit().putInt("2dAgoUse", sharedPreferences.getInt("1dAgoUse", 0)).commit();
 			sharedPreferences.edit().putInt("1dAgoUse", sharedPreferences.getInt("TodayUse", 0)).commit();
+			sharedPreferences.edit().putInt("TodayUse", 0).commit();
 		}
 	}
 //リストをタップした時
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
 		Item item = (Item)mItems.get(arg2);
 /*
 		Intent intent = new Intent(this, ItemDetailActivity.class);
@@ -213,9 +211,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	}
 
 	@Override
-	public void onDestroy() {
+	public void onDestroy(){
 		super.onDestroy();
-
 		UsedTime = (StopWatchService.Hor * 60) + StopWatchService.Min;
 
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -228,5 +225,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		}
 		StopWatchService.Hor = 0;
 		StopWatchService.Min = 0;
+
+		Intent intent;
+
+		intent = new Intent(this, StopWatchService.class);
+		stopService(intent);
+
+		intent = new Intent(this, TimerService.class);
+		stopService(intent);
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		AppActiv = TRUE;
+	}
+
+	@Override
+	public void onPause(){
+		super.onPause();
+		AppActiv = FALSE;
 	}
 }

@@ -11,7 +11,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 
 public class Preferences extends AppCompatActivity{
@@ -65,6 +68,17 @@ public class Preferences extends AppCompatActivity{
 			}
 		});
 //ListViewが押された時の動作ここまで
+	}
 
+	@Override
+	public void onPause(){
+		super.onPause();
+		MainActivity.AppActiv = FALSE;
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		MainActivity.AppActiv = TRUE;
 	}
 }

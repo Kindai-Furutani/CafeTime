@@ -1,6 +1,7 @@
 package com.example.cafetime.cafetime;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -28,6 +30,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class GraphViewActivity extends AppCompatActivity {
 
@@ -87,6 +92,17 @@ public class GraphViewActivity extends AppCompatActivity {
 		// dataset.setColors(ColorTemplate.COLORFUL_COLORS); //
 		barChart.setData(data);
 		barChart.animateY(5000);
+	}
 
+	@Override
+	public void onPause(){
+		super.onPause();
+		MainActivity.AppActiv = FALSE;
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		MainActivity.AppActiv = TRUE;
 	}
 }

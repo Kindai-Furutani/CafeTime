@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 /**
  * Created by c200 on 16/12/16.
  */
@@ -72,5 +75,17 @@ public class EndTimerSettingActivity extends AppCompatActivity {
 //DebugMessage
 		Toast.makeText(this, "EndTime = " + sharedPreferences.getInt(EndTime, 99999), Toast.LENGTH_LONG).show();
 		finish();
+	}
+
+	@Override
+	public void onPause(){
+		super.onPause();
+		MainActivity.AppActiv = FALSE;
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		MainActivity.AppActiv = TRUE;
 	}
 }

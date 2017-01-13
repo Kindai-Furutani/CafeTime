@@ -26,7 +26,10 @@
 		<activity android:name=".StartTimerSettingActivity"/>
 		<activity android:name=".EndTimerSettingActivity"/>
 		<activity android:name=".Browser"/>
-		<activity android:name=".PopupNotification"/>
+		<activity
+			android:name=".PopupNotification"
+			android:theme="@style/Theme.AppCompat.Translucent"
+		></activity>
 		<activity android:name=".GraphViewActivity"/>
 
 		<service android:name="TimerService"/>

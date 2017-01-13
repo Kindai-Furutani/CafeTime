@@ -74,6 +74,17 @@ public class SiteSettingActivity extends AppCompatActivity implements CompoundBu
 
 //確認メッセージの表示
 		Toast.makeText(this, String.valueOf(isChecked), Toast.LENGTH_LONG).show();
+	}
 
+	@Override
+	public void onPause(){
+		super.onPause();
+		MainActivity.AppActiv = FALSE;
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		MainActivity.AppActiv = TRUE;
 	}
 }
