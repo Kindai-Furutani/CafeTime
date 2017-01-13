@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static Boolean Viewable = FALSE;
 	public static Boolean GetRssLock = FALSE;
 	public static Boolean BrowserActive = FALSE;
-	public static Boolean AppActiv = TRUE;
+	public static Boolean AppActiv = FALSE;
+	public static Boolean ServiceActiv = FALSE;
 
 	private ArrayList mItems = new ArrayList();
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		AppActiv = TRUE;
 		Viewable = FALSE;
 		NowActivity = "MainActivity";
 		startJudgement();
@@ -56,16 +58,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //タイトルバーの文字を変更
 		setTitle("新着記事");
 
+		if(ServiceActiv == FALSE) {
 //ストップウォッチサービスを開始
-		Intent intent;
-		intent = new Intent(this, StopWatchService.class);
-		startService(intent);
+			Intent intent;
+			intent = new Intent(this, StopWatchService.class);
+			startService(intent);
 
 //タイマーサービスを開始
-		intent = new Intent(this, TimerService.class);
-		startService(intent);
+			intent = new Intent(this, TimerService.class);
+			startService(intent);
 
-		Toast.makeText(this, "StartedServices", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Started services", Toast.LENGTH_SHORT).show();
+
+			ServiceActiv = TRUE;
+		}
+		else{
+			Toast.makeText(this, "Services has already been starting", Toast.LENGTH_SHORT).show();
+		}
 
 //ここからRSS取得の設定
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
@@ -226,11 +235,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 		intent = new Intent(this, TimerService.class);
 		stopService(intent);
+
+		ServiceActiv = FALSE;
 	}
 
 	@Override
 	public void onResume(){
 		super.onResume();
+		if(AppActiv == FALSE)
+			reload();
+
 		AppActiv = TRUE;
 	}
 
