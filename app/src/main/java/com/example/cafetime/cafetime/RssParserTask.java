@@ -1,9 +1,5 @@
 package com.example.cafetime.cafetime;
 
-/**
- * Created by c200 on 16/12/09.
- */
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -18,6 +14,7 @@ import android.widget.ListView;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+
 
 //RssParserTask.java
 public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {

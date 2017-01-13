@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -17,9 +16,6 @@ import android.widget.ToggleButton;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-/**
- * Created by c200 on 16/12/15.
- */
 
 public class SiteSettingActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 

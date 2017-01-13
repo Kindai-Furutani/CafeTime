@@ -13,9 +13,6 @@ import android.widget.Toast;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-/**
- * Created by c200 on 16/12/16.
- */
 
 public class EndTimerSettingActivity extends AppCompatActivity {
 

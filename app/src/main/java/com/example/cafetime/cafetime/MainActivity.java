@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static String NowActivity = null;
 	public static Intent RunningIntent = null;
 	public static Boolean Viewable = FALSE;
-	public static Boolean ServiceStarter = TRUE;
 	public static Boolean GetRssLock = FALSE;
 	public static Boolean BrowserActive = FALSE;
 	public static Boolean AppActiv = TRUE;
@@ -123,17 +122,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		Item item = (Item)mItems.get(arg2);
-/*
-		Intent intent = new Intent(this, ItemDetailActivity.class);
-		intent.putExtra("TITLE", item.getTitle());
-		intent.putExtra("DESCRIPTION", item.getDescription());
-*/
 		URL = item.getLink().toString();
 		Intent intent = new Intent(this, Browser.class);
 
 		startActivity(intent);
 	}
-
 
 //右上の設定ボタン
 	@Override

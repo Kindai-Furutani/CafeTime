@@ -1,9 +1,5 @@
 package com.example.cafetime.cafetime;
 
-/**
- * Created by c200 on 16/12/08.
- */
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +43,6 @@ public class Preferences extends AppCompatActivity{
 
 		listView.setAdapter(adapter);
 //ListViewの設定ここまで
-
 
 //ListViewが押された時の動作
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -1,17 +1,13 @@
 package com.example.cafetime.cafetime;
 
-/**
- * Created by c200 on 17/01/02.
- */
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+
 
 public class PopupNotification extends Activity {
 
@@ -41,6 +37,23 @@ public class PopupNotification extends Activity {
 
 			alertDlg.create().show();
 		}
+		else{
+			AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+			alertDlg.setTitle("TestDialog");
+			alertDlg.setMessage("For Debug");
+
+			alertDlg.setCancelable(false);
+
+			alertDlg.setNegativeButton(
+					"Close",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							finish();
+						}
+					});
+
+			alertDlg.create().show();
+		}
 	}
 
 	@Override
@@ -53,9 +66,5 @@ public class PopupNotification extends Activity {
 	public void onResume(){
 		super.onResume();
 		MainActivity.AppActiv = TRUE;
-	}
-
-	public void setCanceledOnTouchOutside(boolean cansel){
-
 	}
 }

@@ -1,13 +1,10 @@
 package com.example.cafetime.cafetime;
 
-/**
- * Created by c200 on 16/12/09.
- */
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
 
 public class ItemDetailActivity extends Activity {
 	private TextView mTitle;
@@ -26,7 +23,5 @@ public class ItemDetailActivity extends Activity {
 		String descr = intent.getStringExtra("DESCRIPTION");
 		mDescr = (TextView) findViewById(R.id.textView2);
 		mDescr.setText(descr);
-
 	}
-
 }

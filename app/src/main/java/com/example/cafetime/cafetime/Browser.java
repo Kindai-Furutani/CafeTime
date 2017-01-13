@@ -4,13 +4,11 @@ package com.example.cafetime.cafetime;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import static java.lang.Boolean.FALSE;

@@ -16,9 +16,6 @@ import android.os.Handler;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-/**
- * Created by c200 on 16/12/22.
- */
 
 public class TimerService extends Service{
 	private Timer mTimer = null;
@@ -35,13 +32,11 @@ public class TimerService extends Service{
 
 	@Override
 	public void onCreate() {
-//		Log.i("TestService", "onCreate");
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 	}
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-//		Log.i("TestService", "onStartCommand");
 		// タイマーの設定
 		mTimer = new Timer(true);
 		mTimer.schedule( new TimerTask(){
@@ -107,10 +102,8 @@ public class TimerService extends Service{
 		Toast.makeText(this, "TimerService onDestroy", Toast.LENGTH_SHORT).show();
 	}
 
-
 	@Override
 	public IBinder onBind(Intent arg0) {
-//		Log.i("TestService", "onBind");
 		return null;
 	}
 }
