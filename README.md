@@ -16,6 +16,8 @@ AndroidStudio 2.2.3<br>
 対応 API21（Android5.0）以降<br>
 Gradle 2.14.1<br>
 <br>
+AppVersion:1.0<br>
+<br>
 <br>
 ##連絡先
 1410990084m(a)hiro.kindai.ac.jp
