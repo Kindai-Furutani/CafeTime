@@ -80,7 +80,8 @@
 
 
 <!-- ここから俺の独自定義 -->
-	<string name="defaultSite">http://blog.livedoor.jp/kinisoku/index.rdf</string>
-	<string name="url1">http://blog.livedoor.jp/kinisoku/index.rdf</string>
+	<string name="defaultSite">http://news.yahoo.co.jp/pickup/rss.xml</string>
+	<string name="url1">http://news.yahoo.co.jp/pickup/rss.xml</string>
+	<string name="AppVersion">Ver:1.0</string>
 
 </resources>
