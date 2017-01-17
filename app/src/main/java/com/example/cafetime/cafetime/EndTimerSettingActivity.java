@@ -70,7 +70,7 @@ public class EndTimerSettingActivity extends AppCompatActivity {
 		Toast.makeText(this, "閲覧可能終了時刻を" + Hour + "時" + Minute + "分に設定しました", Toast.LENGTH_LONG).show();
 
 //DebugMessage
-		Toast.makeText(this, "EndTime = " + sharedPreferences.getInt(EndTime, 99999), Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, "EndTime = " + sharedPreferences.getInt(EndTime, 99999), Toast.LENGTH_LONG).show();
 		finish();
 	}
 

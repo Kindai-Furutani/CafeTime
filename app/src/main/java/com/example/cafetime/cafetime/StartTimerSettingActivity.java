@@ -66,7 +66,7 @@ public class StartTimerSettingActivity extends AppCompatActivity {
 		Toast.makeText(this, "閲覧可能開始時刻を" + Hour + "時" + Minute + "分に設定しました", Toast.LENGTH_LONG).show();
 
 //DebugMessage
-		Toast.makeText(this, "StartTime = " + sharedPreferences.getInt(StartTime, 99999), Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, "StartTime = " + sharedPreferences.getInt(StartTime, 99999), Toast.LENGTH_LONG).show();
 		finish();
 	}
 

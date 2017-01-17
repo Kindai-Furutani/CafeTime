@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			intent = new Intent(this, TimerService.class);
 			startService(intent);
 
-			Toast.makeText(this, "Started services", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, "Started services", Toast.LENGTH_SHORT).show();
 
 			ServiceActiv = TRUE;
 		}
-		else{
+/*		else{
 			Toast.makeText(this, "Services has already been starting", Toast.LENGTH_SHORT).show();
-		}
+		}*/
 
 //ここからRSS取得の設定
 		RssListAdapter mAdapter = new RssListAdapter(this, mItems);
@@ -99,15 +99,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 				num = String.valueOf(i);
 				if(sharedPreferences.getBoolean("settingUse" + i, FALSE) == TRUE) { //設定で使用するになっている場合のみ読み込む
 				//////////////////設定値がnullの場合は実行しないようにしたかったけど効いてない？//////////////////////////
-					if(sharedPreferences.getString(num, null) != null) {
+					if(sharedPreferences.getString(num, null) != null || sharedPreferences.getString(num, null).length() != 0) {
 						GetRssLock = TRUE;
 						task[i].execute(sharedPreferences.getString(num, null)); //task.executeを同時に複数回呼び出してしまわないよう対策
+					}
+					else{
+						GetRssLock = FALSE;
 					}
 				}
 				do{ //RssParserTaskが動作している間はループを回すことで擬似的にロックし、処理が終わったらロックを解除することで表示処理の安定化
 					f++;
-					if(f > 1000000000) //長過ぎるととりあえずで終了させる
+					if(f > 10000000) { //長過ぎるととりあえずで終了させる
 						GetRssLock = FALSE;
+						f = 0;
+					}
 				}while(GetRssLock == TRUE);
 			}
 			_listview.setOnItemClickListener(this);
@@ -211,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			if(NowTime < EndTime2)
 				Viewable = TRUE;
 //DebugMessage
-		Toast.makeText(this, "Judge = " + Viewable, Toast.LENGTH_SHORT).show();
+//		Toast.makeText(this, "Judge = " + Viewable, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -240,12 +245,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 			ServiceActiv = FALSE;
 
-			Toast.makeText(this, "MainActivity onDestroy", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, "MainActivity onDestroy", Toast.LENGTH_SHORT).show();
 		}
-		else{
+/*		else{
 			Toast.makeText(this, "Called MainActivity onDestroy\n" +
 					"But Services keep working", Toast.LENGTH_SHORT).show();
 		}
+*/
 		ServiceKill = TRUE;
 	}
 

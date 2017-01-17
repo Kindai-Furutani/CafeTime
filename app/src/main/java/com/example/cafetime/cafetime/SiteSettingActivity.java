@@ -69,7 +69,7 @@ public class SiteSettingActivity extends AppCompatActivity implements CompoundBu
 		sharedPreferences.edit().putBoolean(("settingUse" + Preferences.SaveNum), isChecked).commit();
 
 //確認メッセージの表示
-		Toast.makeText(this, String.valueOf(isChecked), Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, String.valueOf(isChecked), Toast.LENGTH_LONG).show();
 	}
 
 	@Override
@@ -82,5 +82,14 @@ public class SiteSettingActivity extends AppCompatActivity implements CompoundBu
 	public void onResume(){
 		super.onResume();
 		MainActivity.AppActiv = TRUE;
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		if(sharedPreferences.getString(Preferences.SaveNum, null) == null || sharedPreferences.getString(Preferences.SaveNum, null).length() < 9)
+			sharedPreferences.edit().putBoolean(("settingUse" + Preferences.SaveNum), FALSE).commit();
 	}
 }

@@ -26,7 +26,7 @@ public class StopWatchService extends Service{
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		Toast.makeText(this, "StopWatch Started", Toast.LENGTH_SHORT).show();
+//		Toast.makeText(this, "StopWatch Started", Toast.LENGTH_SHORT).show();
 
 		// タイマーの設定
 		mTimer = new Timer(true);
@@ -45,7 +45,7 @@ public class StopWatchService extends Service{
 					if(Min%1 == 0) { //とりあえず15分毎にポップアップ呼び出す設定
 						if(MainActivity.AppActiv = TRUE) {
 							if (Call == TRUE) {
-								Toast.makeText(StopWatchService.this, "使用開始から" + Hor + "時間" + Min + "分が経過しました", Toast.LENGTH_SHORT).show();
+//								Toast.makeText(StopWatchService.this, "使用開始から" + Hor + "時間" + Min + "分が経過しました", Toast.LENGTH_SHORT).show();
 								PopupNotification.CalledBy = "StopWatchService";
 
 								//現在起動しているActivityからポップアップを呼び出す
@@ -73,7 +73,7 @@ public class StopWatchService extends Service{
 			mTimer.cancel();
 			mTimer = null;
 		}
-		Toast.makeText(this, "StopWatch onDestroy", Toast.LENGTH_SHORT).show();
+//		Toast.makeText(this, "StopWatch onDestroy", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

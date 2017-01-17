@@ -44,7 +44,6 @@ public class TimerService extends Service{
 			public void run(){
 				mHandler.post( new Runnable(){
 					public void run(){
-//						Log.d( "TestService" , "Timer run" );
 						StartTime1 = sharedPreferences.getInt("3StartTime", 0);
 						StartTime2 = sharedPreferences.getInt("4StartTime", 0);
 						EndTime1 = sharedPreferences.getInt("3EndTime", 0);
@@ -56,7 +55,7 @@ public class TimerService extends Service{
 						MainActivity.Viewable = FALSE;
 
 					//DebugMessage
-						Toast.makeText(TimerService.this, "StartTime1 = " + StartTime1
+/*						Toast.makeText(TimerService.this, "StartTime1 = " + StartTime1
 								+ "\nEndTime1 = " + EndTime1
 								+ "\nStartTime2 = " + StartTime2
 								+ "\nEndTime2 = " + EndTime2, Toast.LENGTH_SHORT).show();
@@ -64,21 +63,21 @@ public class TimerService extends Service{
 								+ "\nNowMinute = " + NowMinute
 								+ "\nNowTime = " + NowTime, Toast.LENGTH_SHORT).show();
 						Toast.makeText(TimerService.this, "Viewable = " + MainActivity.Viewable, Toast.LENGTH_SHORT).show();
-
+*/
 						if(NowTime > StartTime1){
 							if(NowTime < EndTime1){
 								MainActivity.Viewable = TRUE;
 							//DebugMessage
-								Toast.makeText(TimerService.this, "Start1 < Now < End1", Toast.LENGTH_SHORT).show();
-								Toast.makeText(TimerService.this, "Viewable = " + MainActivity.Viewable, Toast.LENGTH_SHORT).show();
+//								Toast.makeText(TimerService.this, "Start1 < Now < End1", Toast.LENGTH_SHORT).show();
+//								Toast.makeText(TimerService.this, "Viewable = " + MainActivity.Viewable, Toast.LENGTH_SHORT).show();
 							}
 						}
 						if(NowTime > StartTime2){
 							if(NowTime < EndTime2){
 								MainActivity.Viewable = TRUE;
 							//DebugMessage
-								Toast.makeText(TimerService.this, "Start2 < Now < End2", Toast.LENGTH_SHORT).show();
-								Toast.makeText(TimerService.this, "Viewable = " + MainActivity.Viewable, Toast.LENGTH_SHORT).show();
+//								Toast.makeText(TimerService.this, "Start2 < Now < End2", Toast.LENGTH_SHORT).show();
+//								Toast.makeText(TimerService.this, "Viewable = " + MainActivity.Viewable, Toast.LENGTH_SHORT).show();
 							}
 						}
 					}
@@ -99,7 +98,7 @@ public class TimerService extends Service{
 			mTimer.cancel();
 			mTimer = null;
 		}
-		Toast.makeText(this, "TimerService onDestroy", Toast.LENGTH_SHORT).show();
+	//	Toast.makeText(this, "TimerService onDestroy", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
