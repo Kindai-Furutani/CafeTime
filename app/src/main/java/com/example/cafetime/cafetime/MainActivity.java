@@ -168,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			reload();
 		}
 
+/*
 //オフライン試験用に追加
 		if(id == R.id.action_webView){
 			Intent intent = new Intent(this, Browser.class);
@@ -179,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			Intent intent = new Intent(this, PopupNotification.class);
 			startActivity(intent);
 		}
+*/
 
 		return super.onOptionsItemSelected(item);
 	}
